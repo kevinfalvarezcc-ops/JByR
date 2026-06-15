@@ -1,371 +1,416 @@
-/* ==========================
-   VARIABLES GLOBALES
-========================== */
-
 :root{
-    --primary: #2563eb;
-    --secondary: #0ea5e9;
-    --accent: #7c3aed;
 
-    --dark: #0f172a;
-    --dark-soft: #1e293b;
+```
+--primary:#2563eb;
+--secondary:#0ea5e9;
+--accent:#7c3aed;
 
-    --light: #f8fafc;
-    --white: #ffffff;
+--dark:#0f172a;
+--light:#f8fafc;
 
-    --shadow: 0 10px 30px rgba(0,0,0,.15);
-    --radius: 20px;
+--radius:20px;
 
-    --transition: .35s ease;
+--shadow:
+    0 10px 30px
+    rgba(0,0,0,.12);
+
+--transition:.3s ease;
+```
+
 }
 
-/* ==========================
-   CONFIGURACIÓN GENERAL
-========================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+```
+margin:0;
+padding:0;
+box-sizing:border-box;
+```
+
 }
 
 html{
-    scroll-behavior:smooth;
+
+```
+scroll-behavior:smooth;
+```
+
 }
 
 body{
-    font-family: "Segoe UI", sans-serif;
-    background: var(--light);
-    color: var(--dark);
-    overflow-x:hidden;
+
+```
+font-family:'Segoe UI',sans-serif;
+
+background:#f8fafc;
+
+color:var(--dark);
+
+overflow-x:hidden;
+```
+
 }
 
-/* ==========================
-   FONDO ANIMADO GLOBAL
-========================== */
+/* =====================
+FONDO ANIMADO
+===================== */
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
 
-    background:
-        linear-gradient(
-            -45deg,
-            #2563eb,
-            #0ea5e9,
-            #7c3aed,
-            #06b6d4
-        );
+```
+content:"";
 
-    background-size:400% 400%;
+position:fixed;
 
-    animation:gradientMove 15s ease infinite;
+inset:0;
 
-    z-index:-2;
-    opacity:.08;
+background:
+    linear-gradient(
+        -45deg,
+        #2563eb,
+        #0ea5e9,
+        #7c3aed,
+        #06b6d4
+    );
+
+background-size:400% 400%;
+
+animation:gradientMove 15s ease infinite;
+
+opacity:.06;
+
+z-index:-1;
+```
+
 }
 
 @keyframes gradientMove{
 
-    0%{
-        background-position:0% 50%;
-    }
+```
+0%{
+    background-position:0% 50%;
+}
 
-    50%{
-        background-position:100% 50%;
-    }
+50%{
+    background-position:100% 50%;
+}
 
-    100%{
-        background-position:0% 50%;
-    }
+100%{
+    background-position:0% 50%;
+}
+```
 
 }
 
-/* ==========================
-   SECCIONES
-========================== */
+/* =====================
+NAVBAR
+===================== */
 
-.section-slide{
-    min-height:100vh;
+.navbar-custom{
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+```
+background:
+    rgba(255,255,255,.85);
 
-    padding:100px 20px;
+backdrop-filter:blur(10px);
 
-    position:relative;
+box-shadow:
+    0 5px 20px
+    rgba(0,0,0,.08);
+```
+
 }
 
-/* ==========================
-   HERO
-========================== */
+.navbar-brand{
+
+```
+font-weight:700;
+```
+
+}
+
+/* =====================
+HERO
+===================== */
+
+.hero-section{
+
+```
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+padding:120px 20px;
+```
+
+}
 
 .hero-title{
-    font-size:clamp(2.5rem, 7vw, 5rem);
-    font-weight:800;
+
+```
+font-size:
+    clamp(2.5rem,7vw,5rem);
+
+font-weight:800;
+```
+
 }
 
 .hero-subtitle{
-    font-size:1.2rem;
-    opacity:.8;
-    max-width:700px;
-    margin:auto;
+
+```
+font-size:1.2rem;
+
+max-width:800px;
+
+margin:auto;
+```
+
 }
 
-/* ==========================
-   GLASS EFFECT
-========================== */
+/* =====================
+SECCIONES
+===================== */
+
+.content-section{
+
+```
+padding:90px 20px;
+```
+
+}
+
+/* =====================
+GLASS
+===================== */
 
 .glass{
-    background:rgba(255,255,255,.15);
 
-    backdrop-filter:blur(15px);
+```
+background:
+    rgba(255,255,255,.8);
 
-    border:1px solid rgba(255,255,255,.2);
+backdrop-filter:blur(15px);
 
-    border-radius:var(--radius);
+border-radius:var(--radius);
 
-    box-shadow:var(--shadow);
-}
-
-/* ==========================
-   TARJETAS
-========================== */
-
-.card-custom{
-
-    border:none;
-
-    border-radius:var(--radius);
-
-    transition:var(--transition);
-
-    overflow:hidden;
-
-    background:white;
-
-    box-shadow:var(--shadow);
+box-shadow:var(--shadow);
+```
 
 }
 
-.card-custom:hover{
-
-    transform:
-        translateY(-8px)
-        scale(1.02);
-
-}
-
-.card-icon{
-
-    font-size:3rem;
-
-    color:var(--primary);
-
-}
-
-/* ==========================
-   BOTONES
-========================== */
+/* =====================
+BOTON
+===================== */
 
 .btn-custom{
 
-    background:linear-gradient(
+```
+background:
+    linear-gradient(
         135deg,
         var(--primary),
         var(--accent)
     );
 
-    border:none;
+color:white;
 
-    color:white;
+border:none;
 
-    padding:12px 28px;
+border-radius:50px;
 
-    border-radius:50px;
-
-    transition:var(--transition);
+padding:12px 30px;
+```
 
 }
 
 .btn-custom:hover{
 
-    transform:translateY(-3px);
+```
+color:white;
 
-    box-shadow:
-        0 10px 20px
-        rgba(37,99,235,.3);
-
-}
-
-/* ==========================
-   NAVBAR
-========================== */
-
-.navbar-custom{
-
-    backdrop-filter:blur(12px);
-
-    background:
-        rgba(255,255,255,.8);
-
-    box-shadow:
-        0 5px 20px
-        rgba(0,0,0,.08);
+transform:
+    translateY(-3px);
+```
 
 }
 
-.nav-link{
+/* =====================
+CARDS
+===================== */
 
-    font-weight:600;
+.card-custom{
 
-    transition:var(--transition);
+```
+background:white;
 
-}
+border:none;
 
-.nav-link:hover{
+border-radius:var(--radius);
 
-    color:var(--primary) !important;
+box-shadow:var(--shadow);
 
-}
-
-/* ==========================
-   EFECTO FLOTANTE
-========================== */
-
-.float-element{
-
-    animation:
-        floating 4s
-        ease-in-out
-        infinite;
+transition:var(--transition);
+```
 
 }
 
-@keyframes floating{
+.card-custom:hover{
 
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
+```
+transform:
+    translateY(-8px);
+```
 
 }
 
-/* ==========================
-   DIVISORES
-========================== */
+.card-icon{
 
-.wave-divider{
+```
+font-size:3rem;
 
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-    width:100%;
-}
-
-/* ==========================
-   FOOTER
-========================== */
-
-footer{
-
-    background:var(--dark);
-
-    color:white;
-
-    padding:40px 0;
+color:var(--primary);
+```
 
 }
 
-/* ==========================
-   RESPONSIVE
-========================== */
-
-@media(max-width:768px){
-
-    .hero-title{
-        font-size:2.7rem;
-    }
-
-    .hero-subtitle{
-        font-size:1rem;
-    }
-
-    .section-slide{
-        padding:80px 15px;
-    }
-
-}
-/* ==========================
-   REVEAL ANIMATION
-========================== */
+/* =====================
+REVEAL
+===================== */
 
 .reveal{
 
-    opacity:0;
+```
+opacity:0;
 
-    transform:translateY(40px);
+transform:
+    translateY(40px);
 
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
+transition:
+    .8s ease;
+```
 
 }
 
 .reveal.active{
 
-    opacity:1;
+```
+opacity:1;
 
-    transform:translateY(0);
+transform:
+    translateY(0);
+```
 
 }
 
-/* ==========================
-   BOTON TOP
-========================== */
+/* =====================
+CARRUSEL
+===================== */
+
+.carousel-item{
+
+```
+padding:40px;
+```
+
+}
+
+.lesson-slide{
+
+```
+background:white;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+padding:40px;
+
+text-align:center;
+```
+
+}
+
+/* =====================
+BOTON TOP
+===================== */
 
 #btnTop{
 
-    position:fixed;
+```
+position:fixed;
 
-    bottom:20px;
+right:20px;
 
-    right:20px;
+bottom:20px;
 
-    width:50px;
+z-index:1000;
 
-    height:50px;
+border-radius:50%;
 
-    border:none;
+width:55px;
 
-    border-radius:50%;
+height:55px;
 
-    z-index:1000;
+opacity:0;
 
-    opacity:0;
+visibility:hidden;
 
-    visibility:hidden;
-
-    transition:.3s;
+transition:.3s;
+```
 
 }
 
 #btnTop.show{
 
-    opacity:1;
+```
+opacity:1;
 
-    visibility:visible;
+visibility:visible;
+```
+
+}
+
+/* =====================
+FOOTER
+===================== */
+
+footer{
+
+```
+background:var(--dark);
+
+color:white;
+
+padding:40px 0;
+```
+
+}
+
+/* =====================
+RESPONSIVE
+===================== */
+
+@media(max-width:768px){
+
+```
+.hero-title{
+
+    font-size:2.7rem;
+
+}
+
+.content-section{
+
+    padding:70px 15px;
+
+}
+```
 
 }
