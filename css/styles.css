@@ -1,0 +1,310 @@
+/* ==========================
+   VARIABLES GLOBALES
+========================== */
+
+:root{
+    --primary: #2563eb;
+    --secondary: #0ea5e9;
+    --accent: #7c3aed;
+
+    --dark: #0f172a;
+    --dark-soft: #1e293b;
+
+    --light: #f8fafc;
+    --white: #ffffff;
+
+    --shadow: 0 10px 30px rgba(0,0,0,.15);
+    --radius: 20px;
+
+    --transition: .35s ease;
+}
+
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: "Segoe UI", sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    overflow-x:hidden;
+}
+
+/* ==========================
+   FONDO ANIMADO GLOBAL
+========================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+        linear-gradient(
+            -45deg,
+            #2563eb,
+            #0ea5e9,
+            #7c3aed,
+            #06b6d4
+        );
+
+    background-size:400% 400%;
+
+    animation:gradientMove 15s ease infinite;
+
+    z-index:-2;
+    opacity:.08;
+}
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+/* ==========================
+   SECCIONES
+========================== */
+
+.section-slide{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:100px 20px;
+
+    position:relative;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero-title{
+    font-size:clamp(2.5rem, 7vw, 5rem);
+    font-weight:800;
+}
+
+.hero-subtitle{
+    font-size:1.2rem;
+    opacity:.8;
+    max-width:700px;
+    margin:auto;
+}
+
+/* ==========================
+   GLASS EFFECT
+========================== */
+
+.glass{
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.card-custom{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    transition:var(--transition);
+
+    overflow:hidden;
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+}
+
+.card-custom:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+}
+
+.card-icon{
+
+    font-size:3rem;
+
+    color:var(--primary);
+
+}
+
+/* ==========================
+   BOTONES
+========================== */
+
+.btn-custom{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+
+    border:none;
+
+    color:white;
+
+    padding:12px 28px;
+
+    border-radius:50px;
+
+    transition:var(--transition);
+
+}
+
+.btn-custom:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 20px
+        rgba(37,99,235,.3);
+
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar-custom{
+
+    backdrop-filter:blur(12px);
+
+    background:
+        rgba(255,255,255,.8);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.08);
+
+}
+
+.nav-link{
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.nav-link:hover{
+
+    color:var(--primary) !important;
+
+}
+
+/* ==========================
+   EFECTO FLOTANTE
+========================== */
+
+.float-element{
+
+    animation:
+        floating 4s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes floating{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================
+   DIVISORES
+========================== */
+
+.wave-divider{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    background:var(--dark);
+
+    color:white;
+
+    padding:40px 0;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    .hero-title{
+        font-size:2.7rem;
+    }
+
+    .hero-subtitle{
+        font-size:1rem;
+    }
+
+    .section-slide{
+        padding:80px 15px;
+    }
+
+}
