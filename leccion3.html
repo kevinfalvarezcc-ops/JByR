@@ -72,6 +72,36 @@
     .comparacion-pro li:last-child {
       border-bottom: none;
     }
+    .seccion-ia-canva {
+      background: #f0f9ff;
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-left: 6px solid var(--primary);
+    }
+    .img-clickeable {
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .img-clickeable:hover {
+      transform: scale(1.02);
+    }
+    .btn-canva-ia {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 60px;
+      font-weight: 600;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-canva-ia:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -133,6 +163,37 @@
         <div class="text-center mt-4">
           <a href="https://www.canva.com" target="_blank" class="btn btn-custom"><i class="bi bi-box-arrow-up-right"></i> Ir a Canva</a>
         </div>
+      </div>
+
+      <!-- ================= NUEVA SECCIÓN: CANVA IA (MAGIC STUDIO) ================= -->
+      <div class="seccion-ia-canva">
+        <h2><i class="bi bi-magic me-2" style="color: var(--primary);"></i> ¿Qué es Canva IA (Magic Studio)?</h2>
+        <p><strong>Canva IA</strong> (también conocido como <strong>Magic Studio</strong>) es el conjunto de herramientas de inteligencia artificial integradas en Canva. Permite crear diseños de forma más rápida e inteligente, sin necesidad de ser experto en diseño.</p>
+        <p><strong>¿Para qué sirve?</strong> Canva IA se utiliza para:</p>
+        <ul>
+          <li><strong>Generar presentaciones completas</strong> a partir de un texto o idea (Magic Design).</li>
+          <li><strong>Crear imágenes y gráficos</strong> con descripciones textuales (generación de imágenes).</li>
+          <li><strong>Editar y mejorar imágenes</strong> (remover fondos, cambiar colores, ajustar iluminación).</li>
+          <li><strong>Escribir y resumir textos</strong> para diapositivas (Magic Write).</li>
+          <li><strong>Traducir y adaptar contenido</strong> a diferentes idiomas y estilos.</li>
+        </ul>
+        <p><strong>Uso principal para docentes:</strong> Canva IA es especialmente útil para <strong>crear presentaciones</strong> de manera rápida, generando diseños atractivos y estructurados a partir de un tema o texto. También permite crear infografías, carteles y materiales didácticos con sugerencias automáticas de diseño y contenido.</p>
+        
+        <!-- Imagen clickeable -->
+        <div class="text-center my-4">
+          <a href="https://www.canva.com/ai/" target="_blank">
+            <img src="img/canvaia.png" alt="Canva IA - Magic Studio" class="img-fluid img-clickeable" style="max-height: 300px; border-radius: 20px; box-shadow: var(--shadow);">
+          </a>
+          <p class="text-muted mt-2"><i class="bi bi-hand-index-thumb"></i> Haz clic en la imagen para explorar Canva IA</p>
+        </div>
+
+        <!-- Botón "Probar Canva IA" -->
+        <div class="text-center">
+          <a href="https://www.canva.com/ai/" target="_blank" class="btn-canva-ia">
+            <i class="bi bi-rocket-takeoff-fill me-2"></i> Probar Canva IA
+          </a>
+        </div>
+        <p class="text-muted text-center mt-2 small"><i class="bi bi-info-circle"></i> Canva IA está disponible en la versión gratuita con algunas limitaciones, pero muchas funciones son accesibles sin pago.</p>
       </div>
 
       <!-- ================= CARRUSEL DE PASOS PARA USAR ELEMENTOS PREMIUM ================= -->
