@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lección 4: USB, Sistemas Operativos y Herramientas de Arranque | Capacitación Docente</title>
+  <link rel="icon" href="img/logocolegio.svg">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- Tu CSS claro -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .tarjeta-interactiva {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+    }
+    .tarjeta-interactiva:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+    }
+    .badge-leccion {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .carousel-paso .carousel-item {
+      padding: 20px;
+    }
+    .carousel-paso .card {
+      border: none;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .carousel-paso .card img {
+      max-height: 400px;
+      object-fit: contain;
+      background: #f8fafc;
+      padding: 10px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: var(--primary);
+      border-radius: 50%;
+      padding: 1.5rem;
+    }
+    .comparacion-herramienta {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+    .comparacion-herramienta ul {
+      text-align: left;
+    }
+    .ventaja {
+      color: #22c55e;
+    }
+    .desventaja {
+      color: #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-custom">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="img/logocolegio.svg" alt="Logo" width="45" class="me-2">
+      <span class="fw-bold">Capacitación Docente</span>
+    </a>
+  </div>
+</nav>
+
+<section class="section-slide" style="padding-top: 40px;">
+  <div class="container">
+    <div class="glass p-4 p-md-5 reveal">
+      
+      <!-- Encabezado -->
+      <div class="text-center mb-4">
+        <span class="badge-leccion">Lección 4 </span>
+        <h1 class="display-5 fw-bold mt-2">💾 USB, Sistemas Operativos y Arranque</h1>
+        <p class="lead">Aprende a crear USBs booteables, conoce las herramientas y cómo acceder a la BIOS.</p>
+        <hr class="my-4" style="max-width: 100px; margin: auto; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent));">
+      </div>
+
+      <!-- ================= 1. QUÉ ES UN USB Y PARA QUÉ SIRVE ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-usb-plug-fill me-2" style="color: var(--primary);"></i> ¿Qué es un USB?</h2>
+        <p><strong>USB</strong> (Universal Serial Bus) es un tipo de almacenamiento portátil que se conecta al puerto USB de la computadora. Sirve para:</p>
+        <ul>
+          <li>Almacenar y transferir archivos (documentos, fotos, videos).</li>
+          <li>Crear copias de seguridad.</li>
+          <li>Instalar sistemas operativos (USB booteable).</li>
+          <li>Ejecutar herramientas de diagnóstico o recuperación.</li>
+        </ul>
+        <div class="alert alert-info mt-2">
+          <i class="bi bi-lightbulb-fill me-2"></i> <strong>Capacidades típicas:</strong> desde 4 GB hasta 1 TB. Los más comunes son de 16 GB, 32 GB y 64 GB.
+        </div>
+      </div>
+
+      <!-- ================= 2. USB BOOTEABLE ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-bootstrap-fill me-2" style="color: var(--primary);"></i> ¿Qué es un USB booteable?</h2>
+        <p>Un <strong>USB booteable</strong> es un dispositivo que contiene un sistema operativo o una herramienta de arranque que permite iniciar la computadora desde él, en lugar del disco duro interno. Se usa para:</p>
+        <ul>
+          <li>Instalar un sistema operativo desde cero.</li>
+          <li>Ejecutar sistemas operativos en modo Live (sin instalar).</li>
+          <li>Recuperar datos o reparar el sistema.</li>
+          <li>Probar distribuciones de Linux.</li>
+        </ul>
+        <p>Para crear un USB booteable necesitas:</p>
+        <ol>
+          <li>Un USB con suficiente capacidad (8 GB o más).</li>
+          <li>Una imagen ISO del sistema operativo o herramienta.</li>
+          <li>Un programa para grabar la ISO en el USB (Rufus, Ventoy, Etcher, etc.).</li>
+        </ol>
+      </div>
+
+      <!-- ================= 3. QUÉ ES UNA ISO ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-disc-fill me-2" style="color: var(--primary);"></i> ¿Qué es una imagen ISO?</h2>
+        <p>Una <strong>imagen ISO</strong> es un archivo que contiene una copia exacta de un disco (CD, DVD o Blu-ray). Incluye todos los archivos, carpetas y estructura de arranque necesarios para instalar un sistema operativo o ejecutar una herramienta.</p>
+        <p><strong>Ejemplos de ISO:</strong></p>
+        <ul>
+          <li>Windows 10/11 (descargable desde Microsoft).</li>
+          <li>Distribuciones de Linux (Ubuntu, Fedora, Linux Mint).</li>
+          <li>Herramientas de recuperación (Hiren's BootCD, GParted).</li>
+        </ul>
+        <div class="alert alert-warning">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i> Las ISO suelen ser grandes (2-6 GB) y deben grabarse correctamente en el USB para que sean booteables.
+        </div>
+      </div>
+
+      <!-- ================= 4. QUÉ ES UN SISTEMA OPERATIVO ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-window-stack me-2" style="color: var(--primary);"></i> ¿Qué es un Sistema Operativo?</h2>
+        <p>Un <strong>Sistema Operativo (SO)</strong> es el software principal que gestiona el hardware y permite que otros programas funcionen. Es el puente entre el usuario y la máquina.</p>
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <div class="tarjeta-interactiva">
+              <i class="bi bi-windows fs-1" style="color: #0078d4;"></i>
+              <h5>Windows</h5>
+              <p>El más usado en entornos educativos y empresariales. Fácil de usar, compatible con muchos programas.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tarjeta-interactiva">
+              <i class="bi bi-ubuntu fs-1" style="color: #e95420;"></i>
+              <h5>Linux</h5>
+              <p>Gratuito, seguro y altamente personalizable. Ideal para servidores y desarrollo, pero con curva de aprendizaje.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 5. COMPARATIVA WINDOWS VS LINUX ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-arrow-left-right me-2" style="color: var(--primary);"></i> Windows vs Linux: diferencias clave</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead class="table-primary">
+              <tr>
+                <th>Característica</th>
+                <th>Windows</th>
+                <th>Linux</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Costo</td><td>Pago (licencia)</td><td>Gratuito (open source)</td></tr>
+              <tr><td>Facilidad de uso</td><td>Muy fácil, interfaz intuitiva</td><td>Curva de aprendizaje, pero mejorando</td></tr>
+              <tr><td>Software compatible</td><td>Gran variedad (incluido Office)</td><td>Muchas alternativas gratuitas (LibreOffice, GIMP)</td></tr>
+              <tr><td>Seguridad</td><td>Más vulnerable a virus</td><td>Más seguro por su estructura</td></tr>
+              <tr><td>Personalización</td><td>Limitada</td><td>Altamente personalizable</td></tr>
+              <tr><td>Uso recomendado</td><td>Usuarios generales, oficinas, educación</td><td>Desarrolladores, servidores, entusiastas</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted">Ambos SO pueden instalarse desde un USB booteable.</p>
+      </div>
+
+      <!-- ================= 6. RUFUS Y VENTOY ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-tools me-2" style="color: var(--primary);"></i> Herramientas para crear USB booteables</h2>
+        <div class="row g-4 mt-2">
+          <!-- Rufus -->
+          <div class="col-md-6">
+            <div class="comparacion-herramienta">
+              <h3><i class="bi bi-hdd-rack-fill" style="color: #1e3a8a;"></i> Rufus</h3>
+              <p><strong>Rufus</strong> es una herramienta ligera y rápida para crear USBs booteables a partir de imágenes ISO. Es muy popular por su sencillez y eficacia.</p>
+              <h5>Ventajas</h5>
+              <ul>
+                <li class="ventaja">✓ Muy rápido (graba la ISO directamente).</li>
+                <li class="ventaja">✓ Soporta MBR y GPT.</li>
+                <li class="ventaja">✓ Permite elegir el sistema de archivos (FAT32, NTFS).</li>
+                <li class="ventaja">✓ Portable (no requiere instalación).</li>
+              </ul>
+              <h5>Desventajas</h5>
+              <ul>
+                <li class="desventaja">✗ Solo graba una ISO a la vez.</li>
+                <li class="desventaja">✗ Hay que formatear el USB cada vez que se cambia la ISO.</li>
+              </ul>
+              <a href="https://rufus.ie/" target="_blank" class="btn btn-outline-primary mt-2">Descargar Rufus</a>
+            </div>
+          </div>
+          <!-- Ventoy -->
+          <div class="col-md-6">
+            <div class="comparacion-herramienta">
+              <h3><i class="bi bi-box-seam-fill" style="color: #f97316;"></i> Ventoy</h3>
+              <p><strong>Ventoy</strong> es una herramienta innovadora que permite tener múltiples ISOs en un mismo USB y elegir cuál arrancar desde un menú al inicio.</p>
+              <h5>Ventajas</h5>
+              <ul>
+                <li class="ventaja">✓ Soporta múltiples ISOs en un solo USB.</li>
+                <li class="ventaja">✓ No requiere formatear el USB para agregar/quitar ISOs (solo copiar/pegar).</li>
+                <li class="ventaja">✓ Compatible con Windows, Linux, herramientas de recuperación.</li>
+                <li class="ventaja">✓ Fácil de usar, menú gráfico al arrancar.</li>
+              </ul>
+              <h5>Desventajas</h5>
+              <ul>
+                <li class="desventaja">✗ Ocupa algo de espacio en el USB para su propio sistema.</li>
+                <li class="desventaja">✗ En algunos equipos antiguos puede tener problemas de arranque.</li>
+              </ul>
+              <a href="https://www.ventoy.net/" target="_blank" class="btn btn-outline-warning mt-2">Descargar Ventoy</a>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-info mt-3">
+          <i class="bi bi-info-circle-fill me-2"></i> <strong>Recomendación:</strong> si necesitas un solo SO, usa Rufus. Si pruebas varias distribuciones o herramientas, Ventoy es ideal.
+        </div>
+      </div>
+
+      <!-- ================= 7. CÓMO ENTRAR A LA BIOS + CARRUSEL DE IMÁGENES ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-motherboard-fill me-2" style="color: var(--primary);"></i> Acceder a la BIOS y configurar el arranque</h2>
+        <p>Para arrancar desde un USB, debes entrar a la BIOS/UEFI de tu computadora y cambiar el orden de arranque o seleccionar el dispositivo.</p>
+        <ol>
+          <li><strong>Reinicia la computadora.</strong></li>
+          <li>Presiona la tecla correspondiente durante el inicio (varía según la marca): <kbd>F2</kbd>, <kbd>Del</kbd>, <kbd>Esc</kbd>, <kbd>F10</kbd>, <kbd>F12</kbd> (consulta la pantalla de inicio).</li>
+          <li>Dentro de la BIOS, busca la sección <strong>Boot</strong> (Arranque).</li>
+          <li>Selecciona el USB como primera opción de arranque o usa la tecla de acceso rápido para elegir el dispositivo de arranque (ej. <kbd>F12</kbd>).</li>
+          <li>Guarda los cambios y reinicia.</li>
+        </ol>
+        <p>Aquí tienes un recorrido visual del proceso:</p>
+
+        <!-- Carrusel de imágenes de la BIOS -->
+        <div id="carouselBIOS" class="carousel slide carousel-paso" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselBIOS" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselBIOS" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselBIOS" data-bs-slide-to="2"></button>
+          </div>
+          <div class="carousel-inner">
+            <!-- Imagen 1: formateo1.png -->
+            <div class="carousel-item active">
+              <div class="card">
+                <img src="img/formateo1.png" class="card-img-top" alt="Paso 1: Acceder a la BIOS">
+                <div class="card-body">
+                  <h5 class="card-title">Paso 1: Acceso a la BIOS</h5>
+                  <p class="card-text">Presiona la tecla indicada (F2, Del, etc.) durante el arranque para ingresar a la BIOS/UEFI.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Imagen 2: formateo2.png (BIOS) -->
+            <div class="carousel-item">
+              <div class="card">
+                <img src="img/formateo2.png" class="card-img-top" alt="Paso 2: Interfaz de la BIOS">
+                <div class="card-body">
+                  <h5 class="card-title">Paso 2: Interfaz de la BIOS</h5>
+                  <p class="card-text">Una vez dentro, verás la pantalla principal de la BIOS. Busca la sección de arranque (Boot).</p>
+                </div>
+              </div>
+            </div>
+            <!-- Imagen 3: seccion3.png (sección Boot) -->
+            <div class="carousel-item">
+              <div class="card">
+                <img src="img/formateo3.png" class="card-img-top" alt="Paso 3: Sección de arranque">
+                <div class="card-body">
+                  <h5 class="card-title">Paso 3: Sección Boot</h5>
+                  <p class="card-text">En la sección Boot, selecciona el USB como primer dispositivo de arranque. Guarda los cambios (F10) y reinicia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselBIOS" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselBIOS" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+        <p class="text-muted text-center mt-3 small"><i class="bi bi-info-circle"></i> Las imágenes son referenciales; la apariencia varía según el fabricante.</p>
+      </div>
+
+      <!-- ================= RESUMEN FINAL ================= -->
+      <div class="bg-light p-4 rounded-4 mt-4">
+        <h3 class="text-center"><i class="bi bi-check-circle-fill" style="color: var(--primary);"></i> Claves de la lección</h3>
+        <div class="row text-center mt-3">
+          <div class="col-md-4">
+            <i class="bi bi-usb-plug fs-1" style="color: var(--primary);"></i>
+            <p><strong>USB</strong> sirve para almacenar y bootear SO.</p>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-cd fs-1" style="color: var(--primary);"></i>
+            <p><strong>ISO</strong> es la imagen del disco que se graba en el USB.</p>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-bios fs-1" style="color: var(--primary);"></i>
+            <p><strong>BIOS</strong> permite cambiar el orden de arranque.</p>
+          </div>
+        </div>
+        <div class="row text-center mt-2">
+          <div class="col-md-6">
+            <i class="bi bi-tools fs-1" style="color: var(--primary);"></i>
+            <p><strong>Rufus</strong> – simple y rápido para una ISO.</p>
+          </div>
+          <div class="col-md-6">
+            <i class="bi bi-box-seam fs-1" style="color: var(--primary);"></i>
+            <p><strong>Ventoy</strong> – múltiples ISOs en un solo USB.</p>
+          </div>
+        </div>
+        <p class="text-center mt-3">🎯 <strong>Actividad sugerida:</strong> Descarga una ISO de Linux (Ubuntu) y crea un USB booteable con Rufus o Ventoy. Prueba arrancar desde él en tu computadora (puedes hacerlo sin instalar, en modo Live).</p>
+      </div>
+
+      <!-- ================= BOTONES DE NAVEGACIÓN ================= -->
+      <div class="d-flex justify-content-between align-items-center mt-5 pt-3 border-top">
+        <a href="leccion3.html" class="btn btn-outline-secondary"><i class="bi bi-arrow-left-short"></i> Lección anterior</a>
+        <div>
+          <a href="index.html" class="btn btn-outline-secondary me-2"><i class="bi bi-house-door"></i> Inicio</a>
+          <a href="#" class="btn btn-custom disabled">Curso completado</a>
+        </div>
+      </div>
+      <p class="text-center text-success mt-3"><i class="bi bi-trophy-fill"></i> ¡Felicidades! Has completado todas las lecciones.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="mt-5">
+  <div class="container text-center">
+    <h5>Capacitación Docente</h5>
+    <p class="mb-0">Tecnología • Innovación • Educación</p>
+  </div>
+</footer>
+
+<button id="btnTop" class="btn btn-custom"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

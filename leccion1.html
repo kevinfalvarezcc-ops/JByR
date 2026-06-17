@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lección 1: Inteligencia Artificial | Capacitación Docente</title>
+  <link rel="icon" href="img/logocolegio.svg">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- Tu CSS claro -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .comparacion-ia {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .comparacion-ia:hover {
+      transform: translateY(-6px);
+    }
+    .icono-ia {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .badge-ia {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .paso {
+      background: #f0f4fe;
+      border-left: 5px solid var(--primary);
+      padding: 1rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+    .resumen-icono {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .enlace-tarjeta {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+    }
+    .enlace-tarjeta:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-custom">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="img/logocolegio.svg" alt="Logo" width="45" class="me-2">
+      <span class="fw-bold">Capacitación Docente</span>
+    </a>
+  </div>
+</nav>
+
+<section class="section-slide" style="padding-top: 40px;">
+  <div class="container">
+    <div class="glass p-4 p-md-5 reveal">
+      
+      <!-- Encabezado -->
+      <div class="text-center mb-4">
+        <span class="badge-ia">Lección 1 </span>
+        <h1 class="display-5 fw-bold mt-2">🤖 Inteligencia Artificial</h1>
+        <p class="lead">Conceptos básicos, tipos de IA y su aplicación en el aula</p>
+        <hr class="my-4" style="max-width: 100px; margin: auto; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent));">
+      </div>
+
+      <!-- ================= QUÉ ES IA ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-question-circle-fill me-2" style="color: var(--primary);"></i> ¿Qué es una Inteligencia Artificial?</h2>
+        <p>Una <strong>inteligencia artificial (IA)</strong> es una tecnología que permite a las máquinas imitar ciertas capacidades humanas, como <strong>aprender, razonar, resolver problemas o entender el lenguaje</strong>. Esta aprende del uso de los usuarios para reconocer objetos o conceptos.</p>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="paso">
+              <i class="bi bi-robot fs-2" style="color: var(--primary);"></i>
+              <h5 class="mt-2">Imita capacidades humanas</h5>
+              <p class="mb-0">Razonamiento, aprendizaje, percepción, procesamiento de lenguaje natural.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="paso">
+              <i class="bi bi-graph-up fs-2" style="color: var(--primary);"></i>
+              <h5 class="mt-2">Aprendizaje continuo</h5>
+              <p class="mb-0">Mejora con la interacción y los datos que recibe de los usuarios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= COMPARATIVA DE IAS (con enlaces) ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-bar-chart-steps me-2" style="color: var(--primary);"></i> ¿Cuál deberíamos usar?</h2>
+        <p>Si bien aprenden de los usuarios, estas IA tienen <strong>especialidades y bancos de información diferentes</strong>. Haz clic en cada tarjeta para visitar su sitio oficial (excepto O‑Llama que te llevará a la sección de LaTeX/Overleaf).</p>
+
+        <div class="row g-4 mt-3">
+          <!-- ChatGPT -->
+          <div class="col-md-6 col-lg-4">
+            <a href="https://chat.openai.com" target="_blank" class="enlace-tarjeta">
+              <div class="comparacion-ia">
+                <i class="bi bi-chat-dots-fill icono-ia" style="color: #10a37f;"></i>
+                <h4>ChatGPT</h4>
+                <p><strong>Basto conocimiento, pobre razonamiento.</strong> Pionera de OpenAI (EE.UU.). Ideal para consultas generales y generación de texto amplio.</p>
+                <span class="badge bg-secondary">Ideal para: información general</span>
+              </div>
+            </a>
+          </div>
+          <!-- DeepSeek (URL corregida) -->
+          <div class="col-md-6 col-lg-4">
+            <a href="https://chat.deepseek.com/" target="_blank" class="enlace-tarjeta">
+              <div class="comparacion-ia">
+                <i class="bi bi-database-fill icono-ia" style="color: #1e3a8a;"></i>
+                <h4>DeepSeek</h4>
+                <p><strong>Similar a ChatGPT, pero de China.</strong> Muy eficiente en búsqueda de información y código. También es un buscador basto, con buen rendimiento en tareas técnicas.</p>
+                <span class="badge bg-secondary">Ideal para: programación y búsquedas</span>
+              </div>
+            </a>
+          </div>
+          <!-- Gemini -->
+          <div class="col-md-6 col-lg-4">
+            <a href="https://gemini.google.com" target="_blank" class="enlace-tarjeta">
+              <div class="comparacion-ia">
+                <i class="bi bi-google icono-ia" style="color: #4285f4;"></i>
+                <h4>Gemini</h4>
+                <p><strong>Especialista en comparar documentos.</strong> De Google, su banco de información proviene de celulares y computadoras que usamos a diario. Excelente para analizar PDFs y textos largos.</p>
+                <span class="badge bg-secondary">Ideal para: comparar documentos</span>
+              </div>
+            </a>
+          </div>
+          <!-- Copilot -->
+          <div class="col-md-6 col-lg-4">
+            <a href="https://copilot.microsoft.com" target="_blank" class="enlace-tarjeta">
+              <div class="comparacion-ia">
+                <i class="bi bi-microsoft icono-ia" style="color: #f25022;"></i>
+                <h4>Copilot</h4>
+                <p><strong>De Microsoft, integrado en Office y Windows.</strong> También especialista en comparación de documentos y asistencia en tareas cotidianas. Muy útil para profesores que usan Word, PowerPoint o Excel.</p>
+                <span class="badge bg-secondary">Ideal para: productividad en Office</span>
+              </div>
+            </a>
+          </div>
+          <!-- Claude -->
+          <div class="col-md-6 col-lg-4">
+            <a href="https://claude.ai" target="_blank" class="enlace-tarjeta">
+              <div class="comparacion-ia">
+                <i class="bi bi-file-text-fill icono-ia" style="color: #5a4fcf;"></i>
+                <h4>Claude</h4>
+                <p><strong>La más avanzada en razonamiento.</strong> Preferida por informáticos y para creación de documentos. Sigue órdenes al pie de la letra, aunque tiene límite de memoria por sesión. Ideal para estructurar textos y comprobar información.</p>
+                <span class="badge bg-secondary">Ideal para: documentos precisos y razonamiento</span>
+              </div>
+            </a>
+          </div>
+          <!-- O-Llama (enlace interno) -->
+          <div class="col-md-6 col-lg-4">
+            <a href="#seccion-latex" class="enlace-tarjeta">
+              <div class="comparacion-ia">
+                <i class="bi bi-cpu icono-ia" style="color: #ff6b35;"></i>
+                <h4>O-Llama (Llama)</h4>
+                <p><strong>La amalgama de IAs.</strong> Puede replicar características de diferentes IA. Ofrece privacidad (no sube tus archivos) pero depende de tu internet y hardware. Ideal para quienes buscan control local.</p>
+                <span class="badge bg-secondary">Ideal para: privacidad y experimentación</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="alert alert-info mt-4" role="alert">
+          <i class="bi bi-lightbulb-fill me-2"></i> <strong>Consejo docente:</strong> Para crear materiales de clase puedes combinar varias: <strong>ChatGPT/DeepSeek</strong> para ideas iniciales, <strong>Gemini/Copilot</strong> para comparar textos y <strong>Claude</strong> para dar estructura final.
+        </div>
+      </div>
+
+      <!-- ================= LATEX Y CREACIÓN DE DOCUMENTOS ================= -->
+      <div id="seccion-latex" class="mb-5">
+        <h2><i class="bi bi-file-earmark-richtext me-2" style="color: var(--primary);"></i> Contenido extra: LaTeX y la IA</h2>
+        
+        <h4>¿Qué es LaTeX?</h4>
+        <p><strong>LaTeX</strong> es un sistema de composición de textos de alta calidad, usado especialmente para documentos científicos, técnicos y matemáticos. Su construcción está hecha exclusivamente en programación, y encuentra una alta similitud con la estructura lógica de las IA. Por eso, <strong>LaTeX + IA es la combinación perfecta para crear documentos impecables</strong>.</p>
+
+        <h4 class="mt-4">¿Qué IA utilizar para la creación de documentos?</h4>
+        <ul>
+          <li><strong>DeepSeek o ChatGPT</strong> → para obtener la información, generar contenido y realizar búsquedas.</li>
+          <li><strong>Claude</strong> → para la creación, comprobación y pulido final del documento (su razonamiento avanzado evita errores).</li>
+        </ul>
+
+        <h4 class="mt-4">¿Dónde y cómo puedo utilizar LaTeX?</h4>
+        <p>Existen dos maneras principales:</p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="paso">
+              <i class="bi bi-hdd-stack-fill fs-3"></i>
+              <h5>Opción 1: Instalación local</h5>
+              <p>Instalar LaTeX en tu computadora (tradicional, con editores como TeXstudio o MikTeX). Es la opción clásica, pero puede ser algo confusa para usuarios habituales.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="paso">
+              <i class="bi bi-browser-chrome fs-3"></i>
+              <h5>Opción 2: Overleaf (recomendada)</h5>
+              <p><strong>Overleaf</strong> es un editor gratuito accesible desde cualquier navegador. Tiene IA integrada, correcciones automáticas, plantillas y una interfaz agradable para nuevos usuarios en documentación. Ideal para docentes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <a href="https://www.overleaf.com/" target="_blank" class="btn btn-outline-primary"><i class="bi bi-box-arrow-up-right"></i> Probar Overleaf gratis</a>
+        </div>
+        <!-- GIF local -->
+        <div class="text-center mt-4">
+          <img src="img/overleaf.gif" alt="Demo de Overleaf" class="img-fluid rounded shadow" style="max-width: 100%; border-radius: 16px;">
+          <p class="text-muted mt-2 small">Ejemplo de uso de Overleaf</p>
+        </div>
+      </div>
+
+      <!-- ================= RESUMEN FINAL ================= -->
+      <div class="bg-light p-4 rounded-4 mt-5">
+        <h3 class="text-center"><i class="bi bi-check-circle-fill" style="color: var(--primary);"></i> Ideas clave de la lección</h3>
+        <div class="row text-center mt-4">
+          <div class="col-md-3 col-6 mb-3">
+            <div class="resumen-icono"><i class="bi bi-robot"></i></div>
+            <p><strong>IA</strong> imita capacidades humanas</p>
+          </div>
+          <div class="col-md-3 col-6 mb-3">
+            <div class="resumen-icono"><i class="bi bi-diagram-3"></i></div>
+            <p><strong>Cada IA tiene especialidad</strong> (buscar, comparar, razonar)</p>
+          </div>
+          <div class="col-md-3 col-6 mb-3">
+            <div class="resumen-icono"><i class="bi bi-file-pdf"></i></div>
+            <p><strong>LaTeX + IA</strong> = documentos perfectos</p>
+          </div>
+          <div class="col-md-3 col-6 mb-3">
+            <div class="resumen-icono"><i class="bi bi-cloud-upload"></i></div>
+            <p><strong>Overleaf</strong> es la mejor opción para empezar con LaTeX</p>
+          </div>
+        </div>
+        <p class="text-center mt-3">🎓 <strong>Actividad sugerida:</strong> Prueba pedirle a ChatGPT o DeepSeek que te explique un tema de tu asignatura y luego usa Claude para que lo convierta en un esquema o documento estructurado.</p>
+      </div>
+
+      <!-- ================= BOTONES DE NAVEGACIÓN ================= -->
+      <div class="d-flex justify-content-between align-items-center mt-5 pt-3 border-top">
+        <a href="index.html" class="btn btn-outline-secondary"><i class="bi bi-house-door"></i> Volver al inicio</a>
+        <div>
+          <a href="leccion2.html" class="btn btn-custom">Siguiente lección <i class="bi bi-arrow-right-short"></i></a>
+        </div>
+      </div>
+      <p class="text-center text-muted mt-4 small">
+        <i class="bi bi-info-circle"></i> Completa esta lección y continúa con la personalización de la IA.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="mt-5">
+  <div class="container text-center">
+    <h5>Capacitación Docente</h5>
+    <p class="mb-0">Tecnología • Innovación • Educación</p>
+  </div>
+</footer>
+
+<button id="btnTop" class="btn btn-custom"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

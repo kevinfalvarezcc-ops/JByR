@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lección 2: Personalización y Creación de Textos con IA | Capacitación Docente</title>
+  <link rel="icon" href="img/logocolegio.svg">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <!-- Tu CSS claro -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .tarjeta-interactiva {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+    }
+    .tarjeta-interactiva:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+    }
+    .tarjeta-tip {
+      background: #f0f9ff;
+      border-radius: 16px;
+      padding: 1rem;
+      margin: 0.8rem 0;
+      border-left: 4px solid var(--primary);
+      transition: 0.2s;
+    }
+    .tarjeta-tip:hover {
+      background: #e0f2fe;
+      transform: translateX(5px);
+    }
+    .badge-leccion {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .gif-centrado {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin: 1rem 0;
+    }
+    .accordion-button:not(.collapsed) {
+      background: var(--primary);
+      color: white;
+    }
+    .accordion-button:focus {
+      box-shadow: none;
+      border-color: var(--primary);
+    }
+    .tabla-ia {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .tabla-ia th {
+      background: var(--primary);
+      color: white;
+      padding: 12px;
+    }
+    .tabla-ia td {
+      padding: 10px;
+    }
+    .btn-copiar {
+      background: #e2e8f0;
+      border: none;
+      border-radius: 30px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      transition: 0.2s;
+    }
+    .btn-copiar:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .accordion-icon {
+      font-size: 1.8rem;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+    .accordion-body a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .accordion-body a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-custom">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="img/logocolegio.svg" alt="Logo" width="45" class="me-2">
+      <span class="fw-bold">Capacitación Docente</span>
+    </a>
+  </div>
+</nav>
+
+<section class="section-slide" style="padding-top: 40px;">
+  <div class="container">
+    <div class="glass p-4 p-md-5 reveal">
+      
+      <!-- Encabezado -->
+      <div class="text-center mb-4">
+        <span class="badge-leccion">Lección 2 </span>
+        <h1 class="display-5 fw-bold mt-2">🎛️ Personalización y Creación de Textos con IA</h1>
+        <p class="lead">Aprende a sacarle el máximo provecho a la IA, personaliza chats, evita errores y genera documentos de calidad.</p>
+        <hr class="my-4" style="max-width: 100px; margin: auto; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent));">
+      </div>
+
+      <!-- ================= TARJETAS DE BENEFICIOS ================= -->
+      <div class="mb-5">
+        <h2 class="text-center mb-4"><i class="bi bi-stars me-2" style="color: var(--primary);"></i> Beneficios de personalizar tu IA</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="tarjeta-interactiva">
+              <i class="bi bi-chat-dots fs-1" style="color: var(--primary);"></i>
+              <h4 class="mt-3">Respuestas coherentes</h4>
+              <p>Adapta el tono: formal, didáctico, creativo o según tu materia.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tarjeta-interactiva">
+              <i class="bi bi-hourglass-split fs-1" style="color: var(--primary);"></i>
+              <h4 class="mt-3">Ahorro de tiempo</h4>
+              <p>No repitas instrucciones cada vez. La IA recuerda dentro del mismo chat.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tarjeta-interactiva">
+              <i class="bi bi-person-workspace fs-1" style="color: var(--primary);"></i>
+              <h4 class="mt-3">Adaptación al nivel</h4>
+              <p>Indica "actúa como profesor de primaria" o "explica para adolescentes".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= ALERTA IMPORTANTE ================= -->
+      <div class="alert alert-warning d-flex align-items-center mb-4" role="alert">
+        <i class="bi bi-exclamation-triangle-fill fs-3 me-3"></i>
+        <div>
+          <strong>¡Importante!</strong> Los prompts personalizados <strong>solo funcionan en el chat actual</strong>. Si inicias un nuevo chat, debes volver a dar las instrucciones. Además, todas las IAs gratuitas tienen <strong>límites de uso</strong> (mensajes por hora/día) y funciones premium con mayor contexto.
+        </div>
+      </div>
+
+      <!-- ================= EJEMPLOS BUENOS Y MALOS ================= -->
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <div class="tarjeta-tip">
+            <i class="bi bi-check-circle-fill fs-4" style="color: #22c55e;"></i>
+            <strong class="ms-2">✓ Buen ejemplo de personalización</strong>
+            <p class="mt-2 mb-0">"Actúa como un optimizador de prompts experto llamado "Lyra" utilizando la metodología 4-D. Tu tarea es mejorar prompts siguiendo este framework:
+
+**DECONSTRUCT:** Analiza la intención principal, entidades clave y requisitos.
+**DIAGNOSE:** Identifica ambigüedades, falta de especificidad y problemas de estructura.
+**DEVELOP:** Aplica técnicas según el tipo:
+- Creativo → Análisis multi-perspectiva + enfoque en tono
+- Técnico → Contexto estructurado + precisión
+- Educativo → Ejemplos prácticos + estructura clara
+- Complejo → Cadena de pensamiento + frameworks
+**DELIVER:** Entrega el prompt optimizado con guía de uso.
+
+**Instrucciones:**
+1. Pregunta: "Chat GPT prefieres modo DETAIL (preguntas) o BASIC (rápido)?"
+2. Adapta tu enfoque según la plataforma objetivo
+3. Proporciona el prompt mejorado en formato claro
+4. Incluye "Mejoras Clave" explicando los cambios
+5. No guardes información de sesiones anteriores
+
+**Ejemplo de respuesta:**
+"**Prompt Optimizado:**
+[Tu prompt mejorado aquí]
+
+**Mejoras Clave:**
+- Asignación de rol experto
+- Estructura de cadena de pensamiento
+- Especificación de formato de salida
+- Contexto en capas
+
+**Técnicas Aplicadas:** [Lista breve]"
+
+Comienza con tu mensaje de bienvenida estándar."</p>
+            <button class="btn-copiar mt-2" onclick="copiarTexto(this)">Copiar ejemplo</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tarjeta-tip" style="border-left-color: #dc2626;">
+            <i class="bi bi-x-circle-fill fs-4" style="color: #dc2626;"></i>
+            <strong class="ms-2">✗ Mal ejemplo (muy vago)</strong>
+            <p class="mt-2 mb-0">"Háblame de la Revolución Industrial." (Sin contexto, sin rol, sin nivel)</p>
+            <button class="btn-copiar mt-2" onclick="copiarTexto(this)">Copiar ejemplo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= SECCIÓN "PERSONALIZANDO" CON GIF ================= -->
+      <div id="personalizando" class="mb-5 text-center">
+        <h2><i class="bi bi-camera-reels me-2" style="color: var(--primary);"></i> Personalizando tu IA</h2>
+        <p>Observa cómo se ajustan los parámetros para obtener mejores resultados:</p>
+        <img src="img/personalizando.gif" alt="Demostración de personalización de IA" class="gif-centrado" style="max-width: 100%; border-radius: 20px;">
+        <p class="text-muted mt-2">Ejemplo: configurando el tono y el nivel de detalle en ChatGPT.</p>
+      </div>
+
+      <!-- ================= ACORDEÓN LÍMITES PREMIUM ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-graph-up me-2" style="color: var(--primary);"></i> Límites y versiones premium</h2>
+        <div class="accordion" id="accordionLimites">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                ChatGPT (GPT-3.5 vs GPT-4)
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionLimites">
+              <div class="accordion-body">
+                <strong>GPT-3.5 (gratuito):</strong> límite de <strong>30 mensajes cada 24 horas</strong>. <br>
+                <strong>GPT-4 (Plus - $20/mes):</strong> mayor capacidad de razonamiento, contexto más largo (32k tokens) y acceso a plugins.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                DeepSeek
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionLimites">
+              <div class="accordion-body">
+                <strong>Gratuito:</strong> límites generosos pero puede tener restricciones en horas pico. Ofrece versión de pago con mayor prioridad y contexto extendido.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                Gemini y Copilot
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionLimites">
+              <div class="accordion-body">
+                <strong>Gemini (gratuito):</strong> integrado en Google, límite de consultas diarias. Versión avanzada en Google One AI Premium.<br>
+                <strong>Copilot (gratuito):</strong> integrado en Microsoft, sin límite estricto pero con ciertas restricciones en información sensible o que no va de acuerdo con sus políticas.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TABLA COMPARATIVA ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-table me-2" style="color: var(--primary);"></i> Comparativa: Gratis vs Premium</h2>
+        <div class="tabla-ia">
+          <table class="table table-bordered mb-0">
+            <thead>
+              <tr><th>Característica</th><th>Gratuito</th><th>Premium</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Mensajes por día</td><td>Limitado (variable)</td><td>Más alto o ilimitado</td></tr>
+              <tr><td>Contexto (tokens)</td><td>4k - 8k</td><td>16k - 128k</td></tr>
+              <tr><td>Acceso a plugins / herramientas</td><td>No</td><td>Sí</td></tr>
+              <tr><td>Exportación directa a archivos</td><td>No (solo texto)</td><td>Algunas sí</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted mt-2 small">* Los valores exactos varían según la IA. Consulta la documentación oficial.</p>
+      </div>
+
+      <!-- ================= CREACIÓN DE TEXTOS ================= -->
+      <div class="mb-5">
+        <h2><i class="bi bi-file-text-fill me-2" style="color: var(--primary);"></i> Creación de Textos con IA</h2>
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <div class="tarjeta-interactiva h-100">
+              <i class="bi bi-check2-circle fs-1" style="color: #22c55e;"></i>
+              <h4 class="mt-3">✅ Qué SÍ hacer</h4>
+              <ul class="text-start mt-2">
+                <li>Instrucciones claras y específicas (formato, extensión, tono).</li>
+                <li>Usar ejemplos dentro del prompt (few-shot learning).</li>
+                <li>Pedir que justifique o explique sus respuestas.</li>
+                <li>Combinar varias IAs (una para borrador, otra para corregir).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tarjeta-interactiva h-100">
+              <i class="bi bi-x-octagon fs-1" style="color: #dc2626;"></i>
+              <h4 class="mt-3">❌ Qué NO hacer</h4>
+              <ul class="text-start mt-2">
+                <li><strong>No basarse únicamente en la IA</strong> – verifica datos críticos.</li>
+                <li>No dar instrucciones ambiguas (resultados pobres).</li>
+                <li>No compartir información personal o confidencial.</li>
+                <li>No esperar que genere archivos Word/PDF con formato (solo texto plano).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-info mt-4">
+          <i class="bi bi-info-circle-fill me-2"></i>
+          <strong>¿Cómo exportar a Word o PDF?</strong><br>
+          Copia el texto generado y pégalo en Word, Google Docs o usa Overleaf (visto en la lección 1) para documentos profesionales.
+        </div>
+      </div>
+
+      <!-- ================= TIPS RÁPIDOS ================= -->
+      <div class="mb-5">
+        <h2 class="text-center mb-4"><i class="bi bi-lightbulb-fill me-2" style="color: var(--primary);"></i> Tips rápidos</h2>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="tarjeta-tip">
+              <i class="bi bi-regex"></i> <strong>Usa delimitadores</strong><br>
+              Separa instrucciones con """ o ### para que la IA las distinga.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tarjeta-tip">
+              <i class="bi bi-arrow-repeat"></i> <strong>Refina iterativamente</strong><br>
+              Pide: "Acorta esto", "Hazlo más formal", "Añade un ejemplo".
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="tarjeta-tip">
+              <i class="bi bi-shield-check"></i> <strong>Verifica fuentes</strong><br>
+              Pide a la IA que cite sus fuentes (aunque a veces inventa).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= ACTIVIDAD PRÁCTICA CON ACORDEONES ================= -->
+      <div class="bg-light p-4 rounded-4 mt-4">
+        <h3 class="text-center"><i class="bi bi-pencil-square" style="color: var(--primary);"></i> Actividad práctica</h3>
+        <p class="text-center">Pon en práctica lo aprendido:</p>
+        <div class="row">
+          <!-- Ejercicio 1 -->
+          <div class="col-md-6 mb-4">
+            <div class="tarjeta-interactiva h-100">
+              <i class="bi bi-chat-square-text fs-1"></i>
+              <h5 class="mt-2">📝 Ejercicio 1</h5>
+              <p>Personaliza un chat con ChatGPT o DeepSeek dándole un rol docente y un nivel educativo. Pídele que genere un plan de clase de 30 minutos sobre cualquier tema que enseñes.</p>
+              
+              <!-- Acordeón Ejercicio 1 -->
+              <div class="accordion mt-3" id="accordionEj1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChatGPT">
+                      <i class="bi bi-chat-dots-fill accordion-icon" style="color: #10a37f;"></i> Ir a ChatGPT
+                    </button>
+                  </h2>
+                  <div id="collapseChatGPT" class="accordion-collapse collapse" data-bs-parent="#accordionEj1">
+                    <div class="accordion-body">
+                      <a href="https://chat.openai.com" target="_blank" class="btn btn-outline-success w-100">Abrir ChatGPT <i class="bi bi-box-arrow-up-right"></i></a>
+                      <p class="small text-muted mt-2">Recuerda: límite de 30 mensajes cada 24 horas en la versión gratuita.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeepSeek">
+                      <i class="bi bi-database-fill accordion-icon" style="color: #1e3a8a;"></i> Ir a DeepSeek
+                    </button>
+                  </h2>
+                  <div id="collapseDeepSeek" class="accordion-collapse collapse" data-bs-parent="#accordionEj1">
+                    <div class="accordion-body">
+                      <a href="https://chat.deepseek.com/" target="_blank" class="btn btn-outline-primary w-100">Abrir DeepSeek <i class="bi bi-box-arrow-up-right"></i></a>
+                      <p class="small text-muted mt-2">Límites generosos, pero puede tener restricciones en horas pico.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ejercicio 2 -->
+          <div class="col-md-6 mb-4">
+            <div class="tarjeta-interactiva h-100">
+              <i class="bi bi-file-earmark-text fs-1"></i>
+              <h5 class="mt-2">📄 Ejercicio 2</h5>
+              <p>Toma el resultado anterior y pídele a otra IA (Gemini, Claude o Copilot) que lo mejore o lo convierta en una estructura de texto más pulida. Luego cópialo a un documento Word.</p>
+              
+              <!-- Acordeón Ejercicio 2 -->
+              <div class="accordion mt-3" id="accordionEj2">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGemini">
+                      <i class="bi bi-google accordion-icon" style="color: #4285f4;"></i> Ir a Gemini
+                    </button>
+                  </h2>
+                  <div id="collapseGemini" class="accordion-collapse collapse" data-bs-parent="#accordionEj2">
+                    <div class="accordion-body">
+                      <a href="https://gemini.google.com" target="_blank" class="btn btn-outline-danger w-100">Abrir Gemini <i class="bi bi-box-arrow-up-right"></i></a>
+                      <p class="small text-muted mt-2">Ideal para comparar documentos y análisis detallado.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseClaude">
+                      <i class="bi bi-file-text-fill accordion-icon" style="color: #5a4fcf;"></i> Ir a Claude
+                    </button>
+                  </h2>
+                  <div id="collapseClaude" class="accordion-collapse collapse" data-bs-parent="#accordionEj2">
+                    <div class="accordion-body">
+                      <a href="https://claude.ai" target="_blank" class="btn btn-outline-secondary w-100">Abrir Claude <i class="bi bi-box-arrow-up-right"></i></a>
+                      <p class="small text-muted mt-2">Excelente para razonamiento y estructuración de textos.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCopilot">
+                      <i class="bi bi-microsoft accordion-icon" style="color: #f25022;"></i> Ir a Copilot
+                    </button>
+                  </h2>
+                  <div id="collapseCopilot" class="accordion-collapse collapse" data-bs-parent="#accordionEj2">
+                    <div class="accordion-body">
+                      <a href="https://copilot.microsoft.com" target="_blank" class="btn btn-outline-info w-100">Abrir Copilot <i class="bi bi-box-arrow-up-right"></i></a>
+                      <p class="small text-muted mt-2">Integrado con Microsoft, muy útil para productividad en Office.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center mt-3">📌 <strong>Comparte tus resultados con tus compañeros docentes</strong></p>
+      </div>
+
+      <!-- ================= BOTONES DE NAVEGACIÓN ================= -->
+      <div class="d-flex justify-content-between align-items-center mt-5 pt-3 border-top">
+        <a href="leccion1.html" class="btn btn-outline-secondary"><i class="bi bi-arrow-left-short"></i> Lección anterior</a>
+        <div>
+          <a href="index.html" class="btn btn-outline-secondary me-2"><i class="bi bi-house-door"></i> Inicio</a>
+          <a href="leccion3.html" class="btn btn-custom">Siguiente lección <i class="bi bi-arrow-right-short"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="mt-5">
+  <div class="container text-center">
+    <h5>Capacitación Docente</h5>
+    <p class="mb-0">Tecnología • Innovación • Educación</p>
+  </div>
+</footer>
+
+<button id="btnTop" class="btn btn-custom"><i class="bi bi-arrow-up"></i></button>
+
+<script>
+  function copiarTexto(btn) {
+    let texto = btn.previousElementSibling.innerText;
+    navigator.clipboard.writeText(texto).then(() => {
+      let originalText = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      setTimeout(() => { btn.innerText = originalText; }, 1500);
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
